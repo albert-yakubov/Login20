@@ -20,6 +20,7 @@ class AIHelloFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
     }
+    //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
     override fun onDetach() {
         super.onDetach()
 
