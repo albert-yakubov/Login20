@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Login2.0</string>
+    <string name="miinibio">lambdaclient</string>
+    <string name="miinisecret">lambdasecret</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
