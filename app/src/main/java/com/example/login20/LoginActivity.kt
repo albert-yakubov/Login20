@@ -7,7 +7,6 @@ import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.os.Handler
 import android.util.Base64
 import android.view.View
 import android.widget.Toast
@@ -19,15 +18,11 @@ import androidx.lifecycle.ViewModelProviders
 import com.example.login20.AIfragments.AIHelloFragment
 import com.example.login20.AIfragments.FragBeGone
 import com.example.login20.databinding.ActivityLoginBinding
-import java.util.Timer
-import kotlin.concurrent.schedule
-import com.stepashka.buildinglocator2.loginMVVMnetwork.AuthListener
-import com.stepashka.buildinglocator2.loginMVVMnetwork.AuthViewModel
-import com.stepashka.buildinglocator2.util.CustomeProgressDialog
-import com.stepashka.buildinglocator2.util.toast
+import com.example.login20.loginMVVMnetwork.AuthListener
+import com.example.login20.loginMVVMnetwork.AuthViewModel
+
+import com.example.login20.util.toast
 import kotlinx.android.synthetic.main.activity_login.*
-import java.util.concurrent.Executors
-import java.util.concurrent.TimeUnit
 
 import androidx.fragment.app.Fragment
 
@@ -70,7 +65,7 @@ class LoginActivity : AppCompatActivity(), AuthListener {
     var binding: ActivityLoginBinding? = null
     var viewmodel: AuthViewModel? = null
 
-    var customeProgressDialog: CustomeProgressDialog? = null
+    //var customeProgressDialog: CustomeProgressDialog? = null
 
     // trying to remember the user with shared prefs:
     var sp: SharedPreferences? = null
@@ -83,9 +78,8 @@ class LoginActivity : AppCompatActivity(), AuthListener {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
         viewmodel = ViewModelProviders.of(this).get(AuthViewModel::class.java)
         binding?.viewModel = viewmodel
-
         viewmodel!!.authListener = this
-        customeProgressDialog = CustomeProgressDialog(this)
+        ///customeProgressDialog = CustomeProgressDialog(this)
         initObservables()
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
@@ -165,9 +159,9 @@ class LoginActivity : AppCompatActivity(), AuthListener {
     private fun initObservables() {
         viewmodel?.progressDialog?.observe(this, Observer {
             if (it!!) {
-                customeProgressDialog?.show()
+                //customeProgressDialog?.show()
             } else {
-                customeProgressDialog?.dismiss()
+                //customeProgressDialog?.dismiss()
             }
         })
 

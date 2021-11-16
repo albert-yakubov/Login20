@@ -1,4 +1,4 @@
-package com.stepashka.buildinglocator2.loginMVVMnetwork
+package com.example.login20.loginMVVMnetwork
 
 import okhttp3.ResponseBody
 import retrofit2.Call
@@ -17,7 +17,7 @@ interface LoginAPI {
               @Field("username") username: String, @Field("password") password: String) : Call<ResponseBody>
 
     companion object{
-        operator fun invoke() : LoginAPI{
+        operator fun invoke() : LoginAPI {
             return Retrofit.Builder().baseUrl("https://ay-my-location.herokuapp.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()

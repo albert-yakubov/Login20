@@ -1,4 +1,4 @@
-package com.stepashka.buildinglocator2.util
+package com.example.login20.util
 
 
 import android.util.Log

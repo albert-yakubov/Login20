@@ -5,7 +5,12 @@
 
     <data>
         <variable name="viewModel"
-            type="com.stepashka.buildinglocator2.loginMVVMnetwork.AuthViewModel"/>
+            type="com.example.login20.loginMVVMnetwork.AuthViewModel"/>
+        <variable
+            name="user"
+            type="com.stepashka.buildinglocator2.models.UserObservable" />
+
+
     </data>
 
 
@@ -85,6 +90,7 @@
             android:layout_margin="16dp"
             android:background="@drawable/rounded_button_settings"
             android:enabled="@{viewModel.btnSelected}"
+
             android:onClick="@{()->viewModel.login()}"
             android:text="Login"
             app:layout_constraintBottom_toTopOf="@id/btn_register"

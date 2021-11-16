@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
     fun getUser(){
         var ui = sp?.getString("username", "defaultValue")
 

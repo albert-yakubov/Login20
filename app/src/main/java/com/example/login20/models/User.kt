@@ -3,9 +3,11 @@ package com.stepashka.buildinglocator2.models
 import android.text.TextUtils
 import android.util.Patterns
 import androidx.databinding.BaseObservable
+import androidx.databinding.Bindable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.example.login20.BR
 import com.stepashka.buildinglocator2.enum.errorcodes
 import java.io.Serializable
 
@@ -64,7 +66,7 @@ class UserObservable(private var username: String, private var password: String)
     fun getpasssword(): String {
         return this.password
     }
-
+    @Bindable
     fun getusername(): String {
         return this.username
     }
@@ -75,6 +77,8 @@ class UserObservable(private var username: String, private var password: String)
 
     fun setusername(username: String) {
         this.username = username
+        notifyPropertyChanged(BR.username)
+
     }
 
     fun isvalidData(): errorcodes {

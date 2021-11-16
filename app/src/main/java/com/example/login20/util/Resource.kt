@@ -1,4 +1,4 @@
-package com.stepashka.buildinglocator2.util
+package com.example.login20.util
 
 // this data class represents Network Calls to UI
 data class Resource<out T>(val status: Status, val data: T?, val message: String?) {

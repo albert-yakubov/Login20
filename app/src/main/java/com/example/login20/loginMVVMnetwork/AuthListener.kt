@@ -1,4 +1,4 @@
-package com.stepashka.buildinglocator2.loginMVVMnetwork
+package com.example.login20.loginMVVMnetwork
 
 import androidx.lifecycle.LiveData
 import com.example.login20.AIfragments.AIHelloFragment

@@ -1,4 +1,4 @@
-package com.stepashka.buildinglocator2.loginMVVMnetwork
+package com.example.login20.loginMVVMnetwork
 
 import android.app.Application
 import android.content.Context
@@ -8,17 +8,16 @@ import android.widget.Toast
 import androidx.databinding.ObservableBoolean
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import com.example.login20.loginMVVMnetwork.ServiceBuilder
 import com.stepashka.buildinglocator2.models.UserObservable
-import com.stepashka.buildinglocator2.util.SingleLiveEvent
-import com.stepashka.buildinglocator2.util.Util
+import com.example.login20.util.SingleLiveEvent
+import com.example.login20.util.Util
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-import android.preference.PreferenceManager
 import android.util.Base64
+import com.stepashka.buildinglocator2.loginMVVMnetwork.UserRepository
 
 
 class AuthViewModel(application: Application) : AndroidViewModel(application){
