@@ -8,7 +8,7 @@ import android.widget.Toast
 import androidx.databinding.ObservableBoolean
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import com.stepashka.buildinglocator2.models.UserObservable
+import com.example.login20.models.UserObservable
 import com.example.login20.util.SingleLiveEvent
 import com.example.login20.util.Util
 import okhttp3.ResponseBody
@@ -17,6 +17,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 import android.util.Base64
+import com.example.login20.util.SharedPreference
 import com.stepashka.buildinglocator2.loginMVVMnetwork.UserRepository
 
 
@@ -31,6 +32,7 @@ class AuthViewModel(application: Application) : AndroidViewModel(application){
     fun LoginViewModel(context: Context?) {
         this.context = context
     }
+
     companion object{
 
         var successfulLogin: Boolean = false
@@ -84,10 +86,12 @@ class AuthViewModel(application: Application) : AndroidViewModel(application){
     }
 
 
+
     fun login(){
 
         progressDialog?.value = true
         authListener?.onStarted()
+        sp?.edit()?.putString("username", username.toString())?.apply()
 
         val call: Call<ResponseBody> = ServiceBuilder.create()
             .login( auth, content_type, username.toString(), password.toString() )

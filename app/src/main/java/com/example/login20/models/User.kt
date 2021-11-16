@@ -1,7 +1,6 @@
-package com.stepashka.buildinglocator2.models
+package com.example.login20.models
 
 import android.text.TextUtils
-import android.util.Patterns
 import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
 import androidx.room.ColumnInfo

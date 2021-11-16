@@ -1,5 +1,9 @@
 package com.example.login20.loginMVVMnetwork
 
+import com.example.login20.models.ResetPassword
+import com.example.login20.models.UpdateUser
+import com.example.login20.models.User
+import com.example.login20.models.UserResult
 import com.stepashka.buildinglocator2.models.*
 import io.reactivex.Observable
 import okhttp3.OkHttpClient

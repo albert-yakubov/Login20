@@ -8,7 +8,7 @@
             type="com.example.login20.loginMVVMnetwork.AuthViewModel"/>
         <variable
             name="user"
-            type="com.stepashka.buildinglocator2.models.UserObservable" />
+            type="com.example.login20.models.UserObservable" />
 
 
     </data>
@@ -22,7 +22,7 @@
         android:screenOrientation="portrait">
 
 
-        <com.google.android.material.textfield.TextInputLayout
+        <RelativeLayout
             android:id="@+id/text_input_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -36,16 +36,16 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <EditText
+                android:id="@+id/usernamePlease"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Username"
-
                 android:inputType="text"
                 android:onTextChanged="@{viewModel::onEmailChanged}"
                 android:text="@={viewModel.username}" />
 
-        </com.google.android.material.textfield.TextInputLayout>
+        </RelativeLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/text_input_password"

@@ -25,6 +25,7 @@ import com.example.login20.util.toast
 import kotlinx.android.synthetic.main.activity_login.*
 
 import androidx.fragment.app.Fragment
+import com.example.login20.util.SharedPreference
 
 
 class LoginActivity : AppCompatActivity(), AuthListener {
@@ -72,6 +73,8 @@ class LoginActivity : AppCompatActivity(), AuthListener {
     @SuppressLint("SourceLockedOrientationActivity")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
 
 
 
@@ -132,6 +135,9 @@ class LoginActivity : AppCompatActivity(), AuthListener {
     override fun onStarted() {
 
         toast("logging in...")
+        val sharedPreference:SharedPreference= SharedPreference(this)
+        val name = usernamePlease.text.toString()
+        sharedPreference.save("username", name)
     }
 
     override fun onSuccess(loginResponse: LiveData<String>) {
@@ -139,8 +145,8 @@ class LoginActivity : AppCompatActivity(), AuthListener {
             toast(it)
             // sending user to tab home activity
 
-            sp?.edit()?.putBoolean("logged",true)?.apply();
 
+            sp?.edit()?.putBoolean("logged",true)?.apply();
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
@@ -167,6 +173,7 @@ class LoginActivity : AppCompatActivity(), AuthListener {
 
         viewmodel?.userLogin?.observe(this, Observer {
             Toast.makeText(this, "welcome, $username", Toast.LENGTH_LONG).show()
+
         })
     }
 
