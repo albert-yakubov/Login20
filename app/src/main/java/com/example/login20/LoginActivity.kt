@@ -32,21 +32,21 @@ class LoginActivity : AppCompatActivity(), AuthListener {
 
     private val fragmentManager = supportFragmentManager
 
-    private val TAG = "LoginActivity"
+//    private val TAG = "LoginActivity"
     companion object {
-
-        var successfulLogin: Boolean = false
-        var content_type = "application/x-www-form-urlencoded"
+//
+//        var successfulLogin: Boolean = false
+//        var content_type = "application/x-www-form-urlencoded"
 
         //var content_type = "application/json"
-        const val CLIENT_ID = R.string.miinibio
-        const val CLIENT_SECRET = R.string.miinisecret
-        const val USERNAME = "USERNAME"
+//        const val CLIENT_ID = R.string.miinibio
+//        const val CLIENT_SECRET = R.string.miinisecret
+//        const val USERNAME = "USERNAME"
 
-        var authString = "$CLIENT_ID:$CLIENT_SECRET"
-        var encodedAuthString: String =
-            Base64.encodeToString(authString.toByteArray(), Base64.NO_WRAP)
-        var auth = "Basic $encodedAuthString"
+//        var authString = "$CLIENT_ID:$CLIENT_SECRET"
+//        var encodedAuthString: String =
+//            Base64.encodeToString(authString.toByteArray(), Base64.NO_WRAP)
+//        var auth = "Basic $encodedAuthString"
 
 
         var username = ""
@@ -142,7 +142,9 @@ class LoginActivity : AppCompatActivity(), AuthListener {
 
     override fun onSuccess(loginResponse: LiveData<String>) {
         loginResponse.observe(this, Observer {
-            toast(it)
+            val sharedPreference:SharedPreference= SharedPreference(this)
+            val welcomeUser = sharedPreference.getValueString("username")
+            toast("Welcome $welcomeUser")
             // sending user to tab home activity
 
 
@@ -172,7 +174,9 @@ class LoginActivity : AppCompatActivity(), AuthListener {
         })
 
         viewmodel?.userLogin?.observe(this, Observer {
-            Toast.makeText(this, "welcome, $username", Toast.LENGTH_LONG).show()
+            val sharedPreference:SharedPreference= SharedPreference(this)
+            val welcomeUser = sharedPreference.getValueString("username")
+            toast("Welcome $welcomeUser")
 
         })
     }
